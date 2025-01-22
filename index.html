@@ -1,20 +1,85 @@
-<!-- coming soon page  -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idogram</title>
-    <style>
-        *{
-            background-color: black;
-            color: white;
-            text-align: center;
-            align-items:baseline;
-        }
-    </style>
- </head>
- <body>
-    <h1>Coming Soon!</h1>
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideogram - Coming Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="text-center">
+      <img 
+        src="./img/ideogram_logo.png" 
+        alt="Ideogram Logo" 
+        class="mx-auto w-auto h-32 mb-6 rounded-lg"
+      >
+      <h1 class="text-4xl font-bold text-emerald-400">Ideogram</h1>
+      <p class="text-gray-300 mt-2 text-lg">A platform to share and discover innovative ideas.</p>
+      
+      <div class="mt-10">
+        <div class="flex justify-center gap-4 text-center">
+          <div>
+            <div id="days" class="text-3xl font-bold">00</div>
+            <p class="text-gray-400">Days</p>
+          </div>
+          <div>
+            <div id="hours" class="text-3xl font-bold">00</div>
+            <p class="text-gray-400">Hours</p>
+          </div>
+          <div>
+            <div id="minutes" class="text-3xl font-bold">00</div>
+            <p class="text-gray-400">Minutes</p>
+          </div>
+          <div>
+            <div id="seconds" class="text-3xl font-bold">00</div>
+            <p class="text-gray-400">Seconds</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <input 
+          type="email" 
+          placeholder="Enter your email" 
+          class="px-4 py-2 rounded-lg w-80 bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+        >
+        <button class="mt-4 px-6 py-2 bg-emerald-500 rounded-lg text-gray-900 font-medium hover:bg-emerald-400 transition">
+          Notify Me
+        </button>
+      </div>
+
+      <p class="mt-6 text-gray-500">
+        Have questions? Email us at 
+        <a href="mailto:info@svvaap.in" class="text-emerald-400 hover:underline">info@svvaap.in</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const countdown = () => {
+      const destination = new Date("March 31, 2024 23:59:59").getTime();
+      const now = new Date().getTime();
+      const difference = destination - now;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    };
+
+    countdown();
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
